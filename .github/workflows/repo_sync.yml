@@ -1,5 +1,5 @@
 # File: .github/workflows/repo-sync.yml
-name: sync-LXK9301-scripts
+name: sync-wuzhi05-MyActions
 on:
   schedule:
     - cron: '1 0,15 * * *'
@@ -9,7 +9,8 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-LXK9301-scripts
+    types: sync-wuzhi05-MyActions
+on:
 jobs:
   repo-sync:
     env:
@@ -22,11 +23,12 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync LXK9301-scripts
+      - name: sync wuzhi05-MyActions
+on:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://gitee.com/lxk0301/jd_scripts.git"
+          source_repo: "https://github.com/wuzhi05/MyActions.git"
           source_branch: "master"
           destination_branch: "master"
           github_token: ${{ secrets.PAT }}
